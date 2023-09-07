@@ -15,4 +15,10 @@ export class TagService {
     const tags = await this.tagRepository.findAll();
     return { tags: tags.map((tag) => tag.tag) };
   }
+
+  async create(tag: string): Promise<Tag> {
+    const newTag = this.tagRepository.create({ tag });
+    await this.tagRepository.persistAndFlush(newTag);
+    return newTag;
+  }
 }
