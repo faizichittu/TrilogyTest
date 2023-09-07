@@ -1,8 +1,6 @@
 // Roster Component
 import { Component, OnInit } from '@angular/core';
-import { ArticlesService } from '../../../../articles/data-access/src/lib/services/articles.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { ArticlesService } from '../../../articles/data-access/src/lib/services/articles.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -14,14 +12,14 @@ interface AuthorStats {
   }
   
   @Component({
-    selector: 'lib-roster',
-    templateUrl: './settings.component.html',
-    styleUrls: ['./settings.component.css'],
+    selector: 'roaster',
+    templateUrl: './roaster.component.html',
+    styleUrls: ['./roaster.component.css'],
     standalone: true,
     imports: [CommonModule],
   })
   
-  export class SettingsComponent implements OnInit {
+  export class RoasterComponent implements OnInit {
   
     authorsStats: AuthorStats[] = [];
     hello: string = "yellow"

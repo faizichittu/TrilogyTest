@@ -13,6 +13,14 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/register" routerLinkActive="active">Sign up</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link"
+          routerLink="/settings"
+          routerLinkActive="active"
+          
+          >Roaster</a
+        >
+      </li>
     </ul>
 
     <!-- Logged in user -->
@@ -28,12 +36,22 @@
         >
       </li>
       <li class="nav-item">
+        <!-- Add "active" class when you're on that page" -->
+        <a
+          class="nav-link"
+          routerLink="/settings"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Roaster</a
+        >
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink="/editor" routerLinkActive="active">
           <i class="ion-compose"></i>&nbsp;New Post
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+        <a class="nav-link" routerLink="/roaster" routerLinkActive="active">
           <i class="ion-gear-a"></i>&nbsp;Settings
         </a>
       </li>

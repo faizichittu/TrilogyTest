@@ -1,21 +1,30 @@
-<div class="settings-page">
-  <div class="container page">
-    <div class="row">
-      <div class="col-md-6 offset-md-3 col-xs-12">
-        <h1 class="text-xs-center">Your Settings</h1>
+<ng-container *ngIf="authorsStats.length > 0; else noAuthors">
+  <h1>Conduit Roaster</h1>
 
-        <cdt-list-errors></cdt-list-errors>
+  <!-- Table for showing the user stats -->
+  <table class="roaster-table">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Profile Link</th>
+        <th>Total Articles Authored</th>
+        <th>Total Likes Received</th>
+        <th>Date of First Article</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of authorsStats">
+        <td>{{ user.username }}</td>
+        <td><a [href]="'/profile/' + user.username">View Profile</a></td>
+        <td>{{ user.totalArticles || 0 }}</td>
+        <td>{{ user.totalLikes || 0 }}</td>
+        <!-- You didn't provide a way to fetch the date of the first article, so I'm leaving it out for now -->
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
 
-        <cdt-dynamic-form (updateForm)="updateForm($event)" [data$]="data$" [structure$]="structure$">
-        </cdt-dynamic-form>
-        <div class="edit-button-container">
-          <button (click)="submit()" class="btn btn-lg btn-primary pull-xs-right" type="submit">Update Settings</button>
-        </div>
-
-        <hr />
-
-        <button class="btn btn-outline-danger" (click)="logout()">Or click here to logout.</button>
-      </div>
-    </div>
-  </div>
-</div>
+<ng-template #noAuthors>
+  <div>No authors are here... yet.</div>
+</ng-template>
